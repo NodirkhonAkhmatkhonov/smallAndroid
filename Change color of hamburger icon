@@ -1,0 +1,8 @@
+1) Add style to your styles
+   <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">YourColor</item>
+    </style>
+
+2) Inside styles.xml add this line to your theme
+   <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
