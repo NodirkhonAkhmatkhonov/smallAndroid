@@ -1,1 +1,3 @@
+// To remove line under Edit Text, you should make its background as transparent
+
 android:background="@android:color/transparent"
