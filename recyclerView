@@ -1,0 +1,121 @@
+// First make sure libraries support recyclerView is implemented in your app level gradle
+   For android: implementation 'com.android.support:recyclerview-v7:version'
+   For androidx: implementation 'androidx.recyclerview:recyclerview:version'
+   
+1) Create the class of items
+  public class WordItem {
+    private String itemName;
+    private boolean isChecked;
+
+    public WordItem (String itemName){
+        this.itemName = itemName;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public boolean getIsChecked(){
+        return isChecked;
+    }
+
+    public void setIsChecked (boolean isChecked) {
+        this.isChecked = isChecked;
+    }
+  }
+  
+2) Create RecyclerAdapter class
+
+	 public class WordRecyclerAdapter extends RecyclerView.Adapter<WordRecyclerAdapter.MyViewHolder> {
+
+    public ArrayList<WordItem> listOfWords;
+    public ArrayList<Integer> selectedItems;
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_word, viewGroup, false);
+        MyViewHolder mvh = new MyViewHolder(view);
+        return mvh;
+    }
+
+    public WordRecyclerAdapter(ArrayList<WordItem> listOfWords) {
+        this.listOfWords = listOfWords;
+        selectedItems = new ArrayList<>();
+    }
+    public WordRecyclerAdapter(){}
+
+    @Override
+    public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, int i) {
+        final int position = i;
+        final WordItem wordItem = listOfWords.get(i);
+        myViewHolder.wordName.setText(wordItem.getItemName());
+
+        myViewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                listOfWords.get(position).setIsChecked(isChecked);
+                if (wordItem.getIsChecked() == true){
+                    selectedItems.add(position);
+                    listOfWords.get(position).setIsChecked(true);
+                }
+                else if (selectedItems.contains(position)){
+                    selectedItems.remove(Integer.valueOf(position));
+                    listOfWords.get(position).setIsChecked(false);
+                }
+            }
+        });
+
+            myViewHolder.checkBox.setChecked(listOfWords.get(i).getIsChecked());
+    }
+
+    @Override
+    public int getItemCount() {
+        return listOfWords.size();
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+        public TextView wordName;
+        public CheckBox checkBox;
+
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            wordName = itemView.findViewById(R.id.item_name);
+            checkBox = itemView.findViewById(R.id.checkbox);
+        }
+    }
+}
+
+3) Add recyclerView inside layout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+4) Finally make MainActivity ready
+	
+	private RecyclerView recyclerView;
+	private LayoutManager layoutManager;
+	private WordRecyclerAdapter adapter;
+	@Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+        layoutManager = new LinearLayoutManager(getContext());
+
+        progressBar = view.findViewById(R.id.progressBar);
+        noWordsText = view.findViewById(R.id.noMessage);
+
+	ArrayList<WordItem> listOfWords = new ArrayList<>();
+                    for (int i = 0; i < formerPart.size(); i++) {
+                        listOfWords.add(new WordItem(formerPart.get(i) + " - " + latterPart.get(i)));
+                    }
+
+                    adapter = new WordRecyclerAdapter(listOfWords);
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setLayoutManager(layoutManager);
+  }
+   
