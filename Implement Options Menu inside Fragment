@@ -1,0 +1,13 @@
+// Create options menu inside fragment
+  1) In Oncreate of your fragment, add this line
+    setHasOptionsMenu(true);
+  
+  2) Then, call OnCreateOptionsMenu method inside fragment
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+      inflater.inflate(R.menu.menu_sample, menu);
+      super.onCreateOptionsMenu(menu,inflater);
+    }
+  
+  3) That's it! )))  
+    
