@@ -1,0 +1,7 @@
+// If you add bottom navigation bar to your activity and there is an editText inside it, Bottom Navigation Bar appears above keyboard 
+// when you touch edit text. To keep Bottom Navigation Bar on its place you should implement the attribute below to you activity in Manifest
+
+           <activity android:name=".ui.main.view.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" /// this row
+            />
