@@ -1,0 +1,33 @@
+// To create splash screen create activity like this
+
+// SPLASH_SCREEN_TIME_OUT is the time which screen is displayed
+
+public class SplashScreenActivity extends AppCompatActivity {
+    private static int SPLASH_SCREEN_TIME_OUT = 2000;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        setContentView(R.layout.splash_screen);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+            
+                Intent intent = new Intent(SplashScreenActivity.this,
+                        MainActivity.class);
+                // We use intent to open one activity from another one. Here after displaying SplashScreenActivity for 2 seconds
+                // MainActivity.class is being opened. 
+
+                startActivity(intent);
+                //invoke the SecondActivity.
+
+                finish();
+                //the current activity will get finished.
+            }
+        }, SPLASH_SCREEN_TIME_OUT);
+    }
+}
