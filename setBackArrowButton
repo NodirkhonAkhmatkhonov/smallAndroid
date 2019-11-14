@@ -1,0 +1,14 @@
+// To implement back arrow button do the following:
+
+// Consider you have MainActivity which is your main activity and SecondActivity which is the second activity you are going to implement
+// back arrow button. As you press back arrow button, your SecondActivity must be finished and open the MainActivity. 
+
+ACTIVITY -------------------------------------------------------
+
+1) Add this code to your SecondActivity's onCreate
+  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+  
+2) In Manifest file, set MainActivity as the parent activity in your SecondActivity like this:
+  <activity android:name=".SecondActivity" android:parentActivityName=".MainActivity"/>
+  
+3) That's it!
