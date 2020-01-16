@@ -1,0 +1,10 @@
+// Here I included how to set clickListener to the view on header layout of navigation drawer IF HEADER HAS ONLY ONE VIEW!
+
+View header = navigationView.getHeaderView(0);
+TextView text = (TextView) header.findViewById(R.id.textView);
+textheader.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(getBaseContext(),"Calling Header", Toast.LENGTH_LONG).show();
+        }
+    });
