@@ -23,7 +23,31 @@
         this.isChecked = isChecked;
     }
   }
-  
+2) Create a layout for recyclerview item
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="horizontal"
+    	android:padding="10dp"
+    	>
+
+    	<androidx.appcompat.widget.AppCompatCheckBox
+        	android:id="@+id/checkbox"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	/>
+
+    	<TextView
+        	android:id="@+id/item_name"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="Name"
+        	android:textSize="18sp"
+        	android:textColor="@android:color/black"
+        	/>
+	</LinearLayout>
 2) Create RecyclerAdapter class
 
 	 public class WordRecyclerAdapter extends RecyclerView.Adapter<WordRecyclerAdapter.MyViewHolder> {
@@ -110,12 +134,12 @@
         noWordsText = view.findViewById(R.id.noMessage);
 
 	ArrayList<WordItem> listOfWords = new ArrayList<>();
-                    for (int i = 0; i < formerPart.size(); i++) {
-                        listOfWords.add(new WordItem(formerPart.get(i) + " - " + latterPart.get(i)));
+                    for (int i = 0; i < size; i++) {
+                        listOfWords.add(new WordItem("Name"));
                     }
 
                     adapter = new WordRecyclerAdapter(listOfWords);
                     recyclerView.setAdapter(adapter);
                     recyclerView.setLayoutManager(layoutManager);
-  }
+    }
    
