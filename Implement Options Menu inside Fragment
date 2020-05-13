@@ -1,3 +1,21 @@
+// Create options menu inside Activity
+  1) Create menu_sample.xml
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/exit"
+        android:title="Exit"
+        />
+    </menu>
+  2) Write the code below inside Activity class
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.more_tab_menu, menu);
+
+        // return true so that the menu pop up is opened
+        return true; 
+    }
+
 // Create options menu inside fragment
   1) In Oncreate of your fragment, add this line
     setHasOptionsMenu(true);
@@ -10,4 +28,4 @@
     }
   
   3) That's it! )))  
-    
+  
