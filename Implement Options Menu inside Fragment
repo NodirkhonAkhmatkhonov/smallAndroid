@@ -15,6 +15,18 @@
         // return true so that the menu pop up is opened
         return true; 
     }
+    
+  3) In order to put onClick for items in options menu
+     @Override
+     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.exit:
+                Toast.makeText(this, "Pressed", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+     }
 
 // Create options menu inside fragment
   1) In Oncreate of your fragment, add this line
@@ -27,5 +39,17 @@
       super.onCreateOptionsMenu(menu,inflater);
     }
   
-  3) That's it! )))  
+  3) In order to put onClick for items in options menu
+     @Override
+     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.exit:
+                Toast.makeText(this, "Pressed", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+     }
+     
+  4) That's it! )))  
   
