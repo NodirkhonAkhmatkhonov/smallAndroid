@@ -1,0 +1,4 @@
+// Bottom Navigation View
+
+1) Firstly, make sure the following library is implemented
+  implementation 'com.google.android.material:material:1.2.0'
