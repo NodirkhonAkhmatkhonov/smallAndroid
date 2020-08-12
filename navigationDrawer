@@ -1,0 +1,31 @@
+// Creating navigation drawer in Kotlin Android
+
+1) You should have the following library
+      implementation 'com.google.android.material:material:1.2.0'
+
+2) Make navigation drawer menu
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    tool:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/all"
+            android:title="@string/all" />
+    </group>
+</menu>
+
+3) Create new style inside resources/styles(AppTheme.NoActionBar) and apply inside MANIFEST
+
+<style name="AppTheme.NoActionBar">
+        
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+4) If you want the navigation drawer has header, then do the following in order
+
+5) Create nav_header.xml inside your layout
+
+6) Inside acitivity_main.xml create DrawerLayout (fitsSystemWindows="true") as a parent attribute with ID!!!
+
+7) 
