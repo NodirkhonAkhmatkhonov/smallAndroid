@@ -2,3 +2,31 @@
 
 1) Firstly, make sure the following library is implemented
   implementation 'com.google.android.material:material:1.2.0'
+  
+2) Provide menu icons inside drawable
+
+3) Create menu
+  For example, bottom_navigation_menu.xml
+  
+4) Implement the following inside activity_main.xml
+  <RelativeLayout
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   >
+
+            <FrameLayout
+                android:id="@+id/frameContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+            
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                app:menu="@menu/bottom_navigation_menu"
+                android:background="@color/colorBottomNavigationBack"
+                />
+
+  </RelativeLayout>
