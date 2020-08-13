@@ -30,3 +30,39 @@
                 />
 
   </RelativeLayout>
+
+5) MainActivity.kt
+private lateinit var bottomNavigationView: BottomNavigationView
+
+private fun initBottomNavigation() {
+        bottomNavigationView = findViewById(R.id.bottomNavigation)
+        bottomNavigationView.setOnNavigationItemSelectedListener(this)
+}
+
+override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+          
+            // Bottom Navigation
+            R.id.home -> toast("Bottom Home")
+            R.id.search -> toast("Bottom Search")
+            R.id.card -> toast("Bottom Card")
+            R.id.favourite -> toast("Bottom Favourite")
+            R.id.account -> toast("Bottom Account")
+        }
+
+        return true
+}
+
+6) In order to disable animation add the following to the activity_main.xml
+
+app:labelVisibilityMode="unlabeled"
+
+7) To set the size of icons
+
+  a) Inside dimens.xml
+     <dimen name="bottom_navigation_icon_size">32dp</dimen>
+  
+  b) In activity_main.xml
+     app:itemIconSize="@dimen/bottom_navigation_icon_size"
+
+
