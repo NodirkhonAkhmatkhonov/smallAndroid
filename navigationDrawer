@@ -112,3 +112,15 @@
             super.onBackPressed()
         }
     }
+
+9) Implement BottomNavigationView.OnNavigationItemSelectedListener to your activity/fragment
+
+10) Implement the method needed
+    
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            
+        }
+        
+        return true
+    }
