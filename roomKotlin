@@ -1,0 +1,21 @@
+// Room DB example in Kotling
+
+1) Add this library to your gradle
+  def room_version = "2.2.5"
+  
+  apply plugin: 'kotlin-kapt'
+  implementation "androidx.room:room-runtime:$room_version"
+  kapt "androidx.room:room-compiler:$room_version"
+  
+2) Create an entity class
+@Entity(tableName = "musics")
+class Music(@ColumnInfo(name = "name")
+            var name: String = "",
+            @ColumnInfo(name = "author")
+            var author: String = "",
+){
+    @PrimaryKey(autoGenerate = true)
+    var id: Long? = null
+}
+
+3) 
