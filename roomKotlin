@@ -18,4 +18,32 @@ class Music(@ColumnInfo(name = "name")
     var id: Long? = null
 }
 
-3) 
+3) Create Dao
+@Dao
+interface WordDao {
+
+    @Query("SELECT * FROM words_table")
+    fun getWords(): List<WordEntity>
+
+    @Insert(onConflict = REPLACE)
+    fun insertWord(word: WordEntity)
+
+    @Query("DELETE FROM words_table WHERE id = :wordId")
+    fun deleteWord(wordId: Int)
+
+    @Update
+    fun updateWord(word: WordEntity)
+}
+
+4) Export schemes
+    
+    javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation":
+                             "$projectDir/schemas".toString()]
+            }
+        }
+        
+    https://developer.android.com/training/data-storage/room/migrating-db-versions
+    
+5) 
