@@ -35,7 +35,7 @@ interface WordDao {
     fun updateWord(word: WordEntity)
 }
 
-4) Export schemes
+4) Export schemes (Optional)
     
     javaCompileOptions {
             annotationProcessorOptions {
@@ -46,4 +46,6 @@ interface WordDao {
         
     https://developer.android.com/training/data-storage/room/migrating-db-versions
     
-5) 
+5) Create database
+
+
